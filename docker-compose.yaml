@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  open-webui:
+    container_name: open-webui
+    build:
+      context: ./open-webui
+    image: open-webui-local
+    ports:
+      - "3333:8080"
+    environment:
+      - WEBUI_AUTH=False
+    volumes:
+      - /Users/psenger/Documents/open-webui/data:/app/backend/data
+    labels:
+      origin.data_dir: "/Users/psenger/Documents/open-webui/data"
+      origin.dir: "/Users/psenger/Developer/open-webui"
+    restart: always
+
+  open-webui-pipeline:
+    container_name: open-webui-pipeline
+    build:
+      context: ./open-webui-pipelines
+    image: open-webui-pipelines-local
+    ports:
+      - "9099:9099"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    volumes:
+      - /Users/psenger/Documents/open-webui-pipeline:/app/pipelines
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    labels:
+      origin.data_dir: "/Users/psenger/Documents/open-webui-pipeline"
+      origin.dir: "/Users/psenger/Developer/open-webui-pipelines"
+    restart: always
+
+  anthropic-ollama-compatible-proxy:
+    container_name: anthropic-ollama-compatible-proxy
+    build: ./anthropic-ollama-compatible-proxy
+    ports:
+      - "11435:11435"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - FLASK_PORT=11435
+      - TRANSPARENT_MODE=true
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:11435/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
