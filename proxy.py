@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 """
-Ollama API Proxy for Claude API
+Ollama to Claude API Proxy
 
-This application serves as a proxy that implements the Ollama API interface
-but forwards requests to Anthropic's Claude API. This allows IDE plugins
-that support Ollama to work with Claude models.
+A Python application that serves as a proxy between Ollama API interface and
+Anthropic's Claude API. This enables IDE plugins and tools that support Ollama
+to work seamlessly with Claude models.
+
+Author: Philip Senger
+GitHub: https://github.com/psenger
+LinkedIn: https://www.linkedin.com/in/philipsenger/
+
+License: MIT License
+Copyright (c) 2025 Philip A Senger
 """
 
 import os
