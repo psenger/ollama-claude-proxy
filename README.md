@@ -256,9 +256,12 @@ curl -X POST http://localhost:11434/api/chat \
 ### Project Structure
 ```
 ollama-claude-proxy/
-├── main.py              # Main application file
-├── requirements.txt     # Python dependencies
-├── README.md           # This file
+├── CONTRIBUTING.md    # How to contribute
+├── Dockerfile         # Docker
+├── LICENSE            # Liscense
+├── README.md          # This file
+├── proxy.py           # Main application file
+├── requirements.txt   # Python dependencies      
 └── venv/              # Virtual environment (created during setup)
 ```
 
