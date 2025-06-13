@@ -26,14 +26,14 @@ A Python application that serves as a proxy between Ollama API interface and Ant
 
 The following Ollama model names are mapped to Claude 4 models:
 
-| Ollama Model Name | Claude Model |
-|-------------------|--------------|
-| `claude-4-sonnet` | `claude-4-sonnet-20250514` |
+| Ollama Model Name        | Claude Model               |
+|--------------------------|----------------------------|
+| `claude-4-sonnet`        | `claude-4-sonnet-20250514` |
 | `claude-4-sonnet:latest` | `claude-4-sonnet-20250514` |
-| `claude-4-opus` | `claude-4-opus-20250514` |
-| `claude-4-opus:latest` | `claude-4-opus-20250514` |
-| `claude-sonnet` | `claude-4-sonnet-20250514` |
-| `claude-opus` | `claude-4-opus-20250514` |
+| `claude-4-opus`          | `claude-4-opus-20250514`   |
+| `claude-4-opus:latest`   | `claude-4-opus-20250514`   |
+| `claude-sonnet`          | `claude-4-sonnet-20250514` |
+| `claude-opus`            | `claude-4-opus-20250514`   |
 
 ## Installation
 
